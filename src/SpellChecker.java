@@ -50,11 +50,26 @@ public class SpellChecker
     * Instead of returning the index the word is found, it simply returns TRUE
     * if the word is found, and FALSE otherwise.
   */
-  public boolean binarySpellCheck(String word)
-  {
-    /* IMPLEMENT ME! */
-
-    return false; // STUB
+  public boolean binarySpellCheck(String word) {
+    int timeChecked = 0;
+    int left = 0;
+    int right = dictionary.size();
+    while(left <= right){
+      timeChecked++;
+      int middle = (left + right) / 2;
+      if(word.compareTo(dictionary.get(middle)) < 0){
+        right = middle - 1;
+      }
+      else if(word.compareTo(dictionary.get(middle)) > 0){
+        left = middle + 1;
+      }
+      else{
+        System.out.println("-- BINARY SEARCH: Number of words checks (loops/runtime): " + timeChecked);
+        return true;
+      }
+    }
+    System.out.println("-- BINARY SEARCH: Number of words checks (loops/runtime): " + timeChecked);
+    return false;
   }
 
   // private helper method, called in the constructor, which loads the words
@@ -64,7 +79,7 @@ public class SpellChecker
     String[] tmp = null;
     try
     {
-      FileReader fileReader = new FileReader("src\\dictionary.txt");
+      FileReader fileReader = new FileReader("src\\myDictionary.txt");
       BufferedReader bufferedReader = new BufferedReader(fileReader);
       ArrayList<String> lines = new ArrayList<String>();
       String line = null;
