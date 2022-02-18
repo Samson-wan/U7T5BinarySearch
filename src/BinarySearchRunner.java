@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BinarySearchRunner
 {
   public static void main(String[] args)
@@ -9,35 +11,35 @@ public class BinarySearchRunner
     int[] arr = {-10, -6, 0, 2, 12, 14, 17, 23, 35, 45, 49, 55, 81, 100, 108};
     
     // test when the target is in the middle (found on the first try!)
-    int idx = BinarySearch.binarySearch(arr, 23);
-    System.out.println("the number 23 was found! it is located at index: " + idx);
+    int idx = Arrays.binarySearch(arr, 0, 2, 23);
+    System.out.println("the number 23 was not found! it is located at index: " + idx);
     
     // test when the target is found after TWO iterations 
-    idx = BinarySearch.binarySearch(arr, 55);
+    idx = Arrays.binarySearch(arr, 55);
     System.out.println("the number 55 was found! it is located at index: " + idx);
     
     // test when the target is found after THREE iterations 
-    idx = BinarySearch.binarySearch(arr, 14);
+    idx = Arrays.binarySearch(arr, 14);
     System.out.println("the number 14 was found! it is located at index: " + idx);
 
     // test when the target is found after FOUR iterations (max for array size)
-    idx = BinarySearch.binarySearch(arr, 81);
+    idx = Arrays.binarySearch(arr, 81);
     System.out.println("the number 81 was found! it is located at index: " + idx);
  
     // test when the target is found after FOUR iterations (max for array size)
-    idx = BinarySearch.binarySearch(arr, 17);
+    idx = Arrays.binarySearch(arr, 17);
     System.out.println("the number 17 was found! it is located at index: " + idx);
     
     // test when the target is the first item in the array (takes 4 iterations)
-    idx = BinarySearch.binarySearch(arr, -10);
+    idx = Arrays.binarySearch(arr, -10);
     System.out.println("the number -10 was found! it is located at index: " + idx);
     
     // test when the target is the last item in the array (takes 4 iterations)
-    idx = BinarySearch.binarySearch(arr, 108);
+    idx = Arrays.binarySearch(arr, 108);
     System.out.println("the number 108 was found! it is located at index: " + idx);
 
     // test when the target is NOT in the array
-    idx = BinarySearch.binarySearch(arr, 13);
+    idx = Arrays.binarySearch(arr, 13);
     System.out.println("the number 13 was NOT found! " + idx);
        
     // --- PART B: DETAILS! ---
